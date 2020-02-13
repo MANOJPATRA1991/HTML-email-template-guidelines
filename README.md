@@ -345,3 +345,9 @@ The major webmail clients don't support `<link>` element.
 #### Don't leave CSS styles in the email's `<head>`
 
 **Gmail** strips the entire element from the HTML when an email is viewed either in its web or mobile clients, leaving an unstyled mess.
+
+## Reference
+
+### Email Client CSS Support Checklist
+
+https://templates.mailchimp.com/resources/email-client-css-support/
