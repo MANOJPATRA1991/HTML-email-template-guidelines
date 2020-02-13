@@ -25,13 +25,13 @@ In HTML email templates, it's necessary to inline CSS styles. So, for the media 
 
 ```
 <style type="text/css">
-    .container{
+    .container {
         color: #505050;
         font-size: 15px;
     }
 
     @media only screen and (max-width:480px){
-        .container{
+        .container {
             color: #CCCCCC !important;
             font-size: 20px !important;
         }
@@ -85,6 +85,8 @@ This can be achieved using `@media` queries and targeting devices with `max-widt
     }
 }
 ```
+
+**NOTE:** See the use of `display: block` in the above code snippet.
 
 ### RULE 5
 
@@ -277,7 +279,7 @@ For small screens, buttons should be full width and text size should be increase
 
 #### Usable link groups
 
-A group of several links clustered together can generally be found near the footer of the page. While it is fine to have the links inline on desktop, for small screens, the top-to-bottom approach works best. Here's how to do it:
+A group of several links clustered together can generally be found near the footer of the page. While it is fine to have the links inline on desktop; for small screens, the top-to-bottom approach works best. Here's how to do it:
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailFooter">
@@ -408,7 +410,7 @@ To avoid turning a phone number into a link, do the following:
 ```
 <a href="tel:1-800-555-5555">1-808-555-5555</a>
 ```
-To avoid turning dates and addresses into links, do the following:
+To avoid turning dates and addresses into links, do as shown in the following example:
 ```
 Visit EmailCo. at <a href="#" style="color:#000000; text-decoration:none;">123 Atlantic Ave. &bull; Atlanta, GA 30318 USA</a>
 ```
@@ -416,6 +418,80 @@ Visit EmailCo. at <a href="#" style="color:#000000; text-decoration:none;">123 A
 ### RULE 5
 
 #### Reset CSS styles
+
+Reset CSS styles are helpful in normalizing how the code gets rendered across multiple email clients. Below are a few commonly used ones:
+
+1. `body` element
+
+```
+body {
+    margin: 0;
+    padding: 0;
+}
+```
+
+2. `img` element
+
+```
+img {
+    border: 0 none;
+    height: auto;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+}
+
+a img {
+    border: 0 none;
+}
+```
+
+3. `table` and `td` elements
+
+To get rid of extra spacing:
+
+```
+table, td {
+    border-collapse: collapse;
+}
+```
+
+When using the `border-radius` property on any element, use the following to get rid of extra spaces:
+
+```
+table, td {
+    border-collapse: separate;
+}
+```
+
+4. Reset for the top-most parent table
+
+Since **GMail** strips the `<body>` element, in order to make the top-most parent table act like the body, we can apply the following CSS properties to it:
+
+```
+height:100% !important;
+margin:0;
+padding:0;
+width:100% !important;
+```
+
+### RULE 6
+
+#### Outlook conditional CSS
+
+Outlook doesn't support CSS very well and to make sure the email template looks particularly well on Outlook, we need to follow a different syntax as shown below:
+
+```
+<!--[if gte mso 9]>
+    <style type="text/css">
+    /* Your Outlook-specific CSS goes here. */
+    </style>
+<![endif]-->
+```
+
+**NOTE:** Any Outlook specific CSS should be at the end of the CSS styles.
+
+In the above code snippet, we are targeting Outlook versions greater than or equal to 9. `mso` stands for Microsoft Outlook, `gte` stands for greater than or equal to. Similarly, `lte` stands for less than or equal to, `lt` stands for less than and `gt` stands for greater than.
 
 ## Reference
 
