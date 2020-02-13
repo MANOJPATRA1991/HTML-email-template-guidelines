@@ -90,15 +90,15 @@ This can be achieved using `@media` queries and targeting devices with `max-widt
 
 ### RULE 5
 
-### No floating and positioning
+#### No floating and positioning
 
 Avoid CSS `float` and `position` properties. These two properties are not supported across some email clients.
 
 ### RULE 6
 
-### Making captioned images responsive
+#### Making captioned images responsive
 
-#### Top caption image
+##### Top caption image
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -121,7 +121,7 @@ Avoid CSS `float` and `position` properties. These two properties are not suppor
 </table>
 ```
 
-#### Bottom caption image
+##### Bottom caption image
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -157,7 +157,7 @@ In order to make both the above responsive, we can do the following:
 </style>
 ```
 
-#### Right caption image
+##### Right caption image
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -182,7 +182,7 @@ In order to make both the above responsive, we can do the following:
 </table>
 ```
 
-#### Left caption image
+##### Left caption image
 
 ```
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
