@@ -349,6 +349,7 @@ The major webmail clients don't support `<link>` element.
 #### Client-specific CSS styles
 
 1. When an email is pulled into Outlook.com / Hotmail, any style rules present in the email are appended with `.ExternalClass`.
+
 **SOLUTION:** Normalization as shown below:
 
 ```
