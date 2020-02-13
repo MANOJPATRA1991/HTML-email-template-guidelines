@@ -1,7 +1,7 @@
 # Contents
 
 1. [Responsive Emails](##responsive-emails)
-2. (CSS)[##css]
+2. [CSS](##css)
 
 ## Responsive Emails
 
