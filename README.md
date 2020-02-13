@@ -417,3 +417,8 @@ Visit EmailCo. at <a href="#" style="color:#000000; text-decoration:none;">123 A
 
 #### Reset CSS styles
 
+## Reference
+
+### Email template design checklist
+
+https://templates.mailchimp.com/resources/email-client-css-support/
