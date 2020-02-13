@@ -1,5 +1,3 @@
-# HTML-email-template-guidelines
-
 ## Responsive Emails
 
 ### RULE 1
@@ -346,8 +344,75 @@ The major webmail clients don't support `<link>` element.
 
 **Gmail** strips the entire element from the HTML when an email is viewed either in its web or mobile clients, leaving an unstyled mess.
 
-## Reference
+### RULE 4
 
-### Email Client CSS Support Checklist
+#### Client-specific CSS styles
 
-https://templates.mailchimp.com/resources/email-client-css-support/
+1. When an email is pulled into Outlook.com / Hotmail, any style rules present in the email are appended with `.ExternalClass`.
+**SOLUTION:** Normalization as shown below:
+
+```
+.ExternalClass{
+    width: 100%;
+}
+
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div{
+    line-height: 100%;
+}
+```
+
+2. Outlook.com / Hotmail sets its own color on heading elements lower in level than an `<h1>` element.
+
+**SOLUTION:**  We need to override them.
+
+3. Left and right table element spacing issue on Outlook.
+
+**SOLUTION:**
+```
+table{
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+}
+```
+
+4. Issue with resizing fluid images on **IE** browsers:
+
+**SOLUTION:**
+```
+img{
+    -ms-interpolation-mode: bicubic;
+}
+```
+
+5. `WebKit` looks for any text that happens to be sized smaller than 13px and increases it to that number, which can sometimes cause design issues in places intended for small text. In order to prevent this on **OSX / iOS**, we can do the following:
+
+```
+body{
+    -webkit-text-size-adjust: 100%;
+}
+```
+
+6. When iOS detects a phone number, address, or calendar date, it turns those items as links with the default color of `#0000FF`. 
+
+To avoid turning a phone number into a link, do the following:
+```
+<meta name="format-detection" content="telephone=no">
+```
+**NOTE:** We should, however, provide our own way of making a call from an email as follows:
+```
+<a href="tel:1-800-555-5555">1-808-555-5555</a>
+```
+To avoid turning dates and addresses into links, do the following:
+```
+Visit EmailCo. at <a href="#" style="color:#000000; text-decoration:none;">123 Atlantic Ave. &bull; Atlanta, GA 30318 USA</a>
+```
+
+### RULE 5
+
+#### Reset CSS styles
+
