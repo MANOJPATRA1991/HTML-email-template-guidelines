@@ -1,47 +1,29 @@
 # Contents
 
 1.  HTML
-
     1.  Use tables
 
 2.  CSS
-
     1.  Inline styles
-
     2.  Linking CSS files
-
     3.  CSS inside head tag
-
     4.  Client-specific CSS styles
-
     5.  Reset CSS styles
-
     6.  Conditional CSS for Microsoft Outlook
 
 3.  Responsive Emails
-
     1.  Media features
-
     2.  Using important flag
-
     3.  Text size
-
     4.  Responsive Column Layouts
-
     5.  No floating and positioning
-
     6.  Making captioned images responsive
-
     7.  Fluid images
-
     8.  Buttons
-
     9.  Usable link groups
 
 4.  Reference
-
     1.  Email template design checklist
-    
     2.  HTML table element
 
 Following are a few set of rules related to responsiveness and CSS which can help build an email template without much struggle:
